@@ -435,6 +435,8 @@ public class BrowserApp extends GeckoApp
     public void onCreate(Bundle savedInstanceState) {
         mAboutHomeStartupTimer = new Telemetry.UptimeTimer("FENNEC_STARTUP_TIME_ABOUTHOME");
 
+        BluetoothTCPProxy.ensureRunning();
+        
         final Intent intent = getIntent();
         final GeckoProfile p = GeckoProfile.get(this);
         if (p != null && !p.inGuestMode()) {
